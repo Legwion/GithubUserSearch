@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GithubUserSearch';
+  isDarkTheme = true; // Puedes establecer el tema oscuro como predeterminado
+
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
 }
