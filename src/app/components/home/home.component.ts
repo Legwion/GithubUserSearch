@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     ){  }
 
 ngOnInit(): void {
+// Form to control input data
   this.searchForm = new FormGroup({
     username : new FormControl(
       null,
@@ -31,7 +32,7 @@ ngOnInit(): void {
 
 
 }
-
+//Redirect to user/$username
  sendUser(){
    console.log(this.searchForm.value);
    this.username = this.searchForm.value.username;

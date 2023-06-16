@@ -27,7 +27,7 @@ export class NavbarComponent {
      private appComponent: AppComponent) {
     
   }
-
+//Function to add or remove the style "dark-mode" to the body of the page
   onChange(newValue: boolean): void {
     if (newValue) {
       this.document.body.classList.add('dark-mode');
@@ -41,7 +41,7 @@ export class NavbarComponent {
     this.appComponent.toggleTheme();
   }
   
-  
+      //Function to set active in navbar
       isRouteActive(routePath: string): boolean {
         return this.router.isActive(routePath, true);
       }

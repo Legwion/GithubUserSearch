@@ -16,8 +16,6 @@ export class UserTableComponent implements OnInit {
   users: any[] = [];
   username: string = '';
   searchForm2!: FormGroup;
-
-  //New
   myControl = new FormControl('');
   options = this.users;
   filteredOptions!: Observable<string[]>;
@@ -39,7 +37,6 @@ export class UserTableComponent implements OnInit {
       this.username = value;
       this.githubService.getSearch(this.username).subscribe((response: any) => {
         this.users = response.items.slice(0, 7);
-        // console.log(this.users);
       });
     });
 
@@ -52,7 +49,6 @@ export class UserTableComponent implements OnInit {
   }
 
   sendUser() {
-    // console.log(this.searchForm2.value);
     this.username = this.searchForm2.value.username;
     this.githubService.getSearch(this.username).subscribe((response: any) => {
       this.users = response.items.slice(0, 7);
