@@ -33,7 +33,8 @@ export class UserTableComponent implements OnInit {
     this.searchForm2 = new FormGroup({
       username: new FormControl(null, [Validators.required])
     });
-
+    
+    //Set form to username and get 7 users for the dropdown Menu
     this.searchForm2.get('username')?.valueChanges.subscribe((value: string) => {
       this.username = value;
       this.githubService.getSearch(this.username).subscribe((response: any) => {
@@ -42,7 +43,7 @@ export class UserTableComponent implements OnInit {
       });
     });
 
- //New
+ //Formatting the input
  this.filteredOptions = this.myControl.valueChanges.pipe(
   startWith(''),
   map(value => this._filter(value || '')),
@@ -57,17 +58,14 @@ export class UserTableComponent implements OnInit {
       this.users = response.items.slice(0, 7);
     });
   }
-
+  
+  // OnClick redirects to /user/$username
   onUserClick(user: any) {
     const userUsername = user.login;
     this.router.navigate([`user/${userUsername}`]);
   }
 
-
-
-//New 
-
-
+//Formatting parameteres of the filter
 private _filter(value: string): string[] {
   const filterValue = value.toLowerCase();
 
