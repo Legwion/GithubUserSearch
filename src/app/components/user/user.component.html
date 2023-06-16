@@ -1,0 +1,71 @@
+<div class="content">
+    <div class="spacer"></div>
+    <!-- <h1>User</h1> -->
+    <div class="spacer" [ngClass]="{'twocol': responsiveService.isPC,  ' tworow': !responsiveService.isPC}">
+
+        <div class="card">
+            <mat-card class="center flexrow" [ngClass]="{'width': responsiveService.isPC,  ' ': !responsiveService.isPC}">
+
+                <div class=" center flexrowc ">
+                    <img class="border avatarUrl" src={{userDetail?.avatar_url}} alt="foto">
+                    <h1>{{userDetail?.login}}</h1>
+                </div>
+                <div>
+
+                    <h3>{{userDetail?.followers}} followers</h3>
+                    <table *ngFor="let foll of follDetail">
+                        <div class="flexcol">
+                            <img class="follpic border" src={{foll.avatar_url}} alt="{{foll?.login}} picture">
+                            <ul>{{foll?.login}}</ul>
+                        </div>
+                    </table>
+                    <h3>Following: {{userDetail?.following}}</h3>
+                    <h3>Public repositories: {{userDetail?.public_repos}} </h3>
+
+                    <!-- <p>b</p> -->
+
+
+                </div>
+            </mat-card>
+        </div>
+        <div class="card">
+            <mat-card [ngClass]="{'width': responsiveService.isPC,  ' ': !responsiveService.isPC}">
+
+                <!-- <p>a</p> -->
+
+
+                <h3>Repositories:</h3>
+                <div *ngFor="let repo of repoDetail">
+
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title-group>
+                                <mat-card-title>
+                                    <h3>{{repo?.name}}</h3>
+                                </mat-card-title>
+                                <mat-card-subtitle>
+                                    <h4>
+
+                                        Stars: {{repo?.stargazers_count}} Forks: {{repo?.forks}}
+                                    </h4>
+                                </mat-card-subtitle>
+                                <!-- <img mat-card-md-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Image of a Shiba Inu"> -->
+                            </mat-card-title-group>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>
+                                {{repo?.description}}
+
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+
+
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div class="center width">
+
+    </div>
+</div>

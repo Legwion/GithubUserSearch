@@ -1,0 +1,51 @@
+<!-- <div>
+
+    <form [formGroup]="searchForm2" (ngSubmit)="sendUser()">
+        <label for=""> Username </label>
+        <input type="text" name="" id="" formControlName="username">
+
+        <button class="btn btn-primary" [disabled]="!this.searchForm2.valid">
+         Search 
+        </button>
+    </form>
+
+
+
+    <table class="searchTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                    <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users" (click)="onUserClick(user)" class="searchRow">
+                <td><img class="imgSearch" src={{user.avatar_url}} alt="foto">
+                </td>
+                <td>
+                    <h3>{{ user.login }}</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ -->
+<div class="container">
+    <form [formGroup]="searchForm2" (ngSubmit)="sendUser()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input type="text" formControlName="username" placeholder="Ex. Legwion" aria-label="Number" matInput [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let user of users">
+                    <tr *ngFor="let user of users" (click)="onUserClick(user)" class="searchRow">
+                        <td><img class="imgSearch" src={{user?.avatar_url}} alt="foto">
+                        </td>
+                        <td class="searchRow">
+                            <h3>{{ user.login }}</h3>
+                        </td>
+                    </tr>
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+</div>

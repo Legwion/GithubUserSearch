@@ -6,7 +6,8 @@ import { UserTableComponent } from './components/user-table/user-table.component
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'user/:id', component: UserComponent },
+  { path: 'user', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'user/:id', component: UserComponent }, 
   { path: 'table', component: UserTableComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirección de ruta vacía a '/home'
 ];
